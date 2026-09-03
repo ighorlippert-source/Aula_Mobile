@@ -1,4 +1,5 @@
 import 'package:aula_mobail/screen/myhomepage.dart';
+import 'package:aula_mobail/screen/segunda_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(  colorScheme: .fromSeed(seedColor: Colors.green),
     ),
 
-      home: const MyHomePage(title: 'Flutter aula 01'),
+     home: const MyHomePage(title: 'Flutter aula 01'),
     );
   }
 }

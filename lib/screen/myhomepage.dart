@@ -1,3 +1,5 @@
+import 'package:aula_mobail/components/menuDrawer.dart';
+import 'package:aula_mobail/screen/segunda_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -48,7 +50,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _divisao(){setState(() {_resultado = _counter / _counter2;});}
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,6 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Colors.black26,
         title: Text(widget.title),
       ),
+      drawer: MenuDrawer(),
       body: Center(
         child: Column(
           mainAxisAlignment: .center,
@@ -93,13 +95,13 @@ class _MyHomePageState extends State<MyHomePage> {
             SizedBox(height: 25),
             Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                ElevatedButton(style: ElevatedButton.styleFrom(textStyle: TextStyle(fontSize: 20), elevation: 20 , shadowColor: Colors.green.withOpacity(1.0), backgroundColor: Colors.greenAccent),
+                ElevatedButton(style: ElevatedButton.styleFrom(textStyle: TextStyle(fontSize: 20),  backgroundColor: Colors.greenAccent),
                     onPressed: (){_incrementCounter2();} ,
                     child: Text('Aumentar')),
 
                 SizedBox(height: 20,),
 
-                ElevatedButton(style: ElevatedButton.styleFrom(textStyle: TextStyle(fontSize: 20), elevation: 20 , shadowColor: Colors.green.withOpacity(1.0),backgroundColor: Colors.redAccent),
+                ElevatedButton(style: ElevatedButton.styleFrom(textStyle: TextStyle(fontSize: 20), backgroundColor: Colors.redAccent),
                     onPressed: (){_decrementCounter2();} ,
                     child: Text('Diminuir')
                 )
