@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../screen/myhomepage.dart';
-import '../screen/segunda_page.dart';
+import '../screen/galeria_page.dart';
 
 class MenuDrawer extends StatelessWidget {
   @override
@@ -24,7 +24,7 @@ class MenuDrawer extends StatelessWidget {
             onTap: (){
               Navigator.push(context,
                   MaterialPageRoute(builder:(context) =>
-                      SegundaPage() ));
+                      GaleriaPage() ));
             },
           ),
           ListTile(

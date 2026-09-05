@@ -1,4 +1,4 @@
-import 'package:aula_mobail/screen/segunda_page.dart';
+import 'package:aula_mobail/screen/galeria_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -33,7 +33,7 @@ class _TerceiraPageState extends State<TerceiraPage>{
                 onTap: (){
                   Navigator.push(context,
                       MaterialPageRoute(builder:(context) =>
-                          SegundaPage() ));
+                          GaleriaPage() ));
                 },
               )
             ],
