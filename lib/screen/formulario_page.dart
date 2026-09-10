@@ -7,9 +7,18 @@ import 'package:flutter/material.dart';
 import '../components/menuDrawer.dart';
 
 class FormularioPage extends StatefulWidget {
+  const FormularioPage({super.key,
+    required this.modoEscuro,
+    required this.aoAlterarTema,
+  });
+
+  final bool modoEscuro;
+
+  final ValueChanged<bool> aoAlterarTema;
   @override
   State<FormularioPage> createState() => _FormularioPage();
 }
+
 
 class _FormularioPage extends State<FormularioPage>{
   final _formKey = GlobalKey<FormState>();
@@ -41,7 +50,7 @@ class _FormularioPage extends State<FormularioPage>{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.amberAccent,
+        backgroundColor: Colors.grey,
         title: Text("Formulario"),
       ),
       drawer: MenuDrawer(),

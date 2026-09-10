@@ -12,10 +12,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'aula01',
-      theme: ThemeData(  colorScheme: .fromSeed(seedColor: Colors.green),
-    ),
-
-     home: const MyHomePage(title: 'Flutter aula 01'),
+      theme: ThemeData(
+        colorScheme: .fromSeed(seedColor: Colors.blueGrey),
+      ),
+       home: MyHomePage(title: 'Flutter aula 01', modoEscuro: true,
+    aoAlterarTema: (bool value) {}),
     );
   }
 }

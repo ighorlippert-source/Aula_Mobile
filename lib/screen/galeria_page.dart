@@ -7,6 +7,16 @@ import '../components/menuDrawer.dart';
 import 'myhomepage.dart';
 
 class GaleriaPage extends StatefulWidget {
+
+  const GaleriaPage({super.key,
+    required this.modoEscuro,
+    required this.aoAlterarTema,
+  });
+
+  final bool modoEscuro;
+
+  final ValueChanged<bool> aoAlterarTema;
+
   @override
   State<GaleriaPage> createState() => _GaleriaPageState();
 }
@@ -43,8 +53,8 @@ class _GaleriaPageState extends State<GaleriaPage>{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.amber,
-        title: Text("Galaria"),
+        backgroundColor: Colors.grey,
+        title: Text("Galeria"),
       ),
       drawer: MenuDrawer(),
       body: Padding(
@@ -52,7 +62,7 @@ class _GaleriaPageState extends State<GaleriaPage>{
         child: GridView.builder(
           itemCount: _lugares.length,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
+                crossAxisCount: 4,
             ),
 
           itemBuilder: (context, index){
@@ -71,7 +81,7 @@ class _GaleriaPageState extends State<GaleriaPage>{
 
     //InkWell deixa o componente filho clicavel desenhando um efeito no mesmo.
     return InkWell(
-      onTap: () => {},
+      onTap: () => _abrirDestalhesDoLugar(lugar),
       child: Card(
         elevation:9,
         //Aqui usamos Stack porque queremos colocar o nome do lugar na frente da imagem e não embaixo dela.
@@ -138,6 +148,48 @@ class _GaleriaPageState extends State<GaleriaPage>{
       ),
     );
 
+  }
+
+  //abre bottonsheet (modal) com mais detalhes do destino escolhido
+  void _abrirDestalhesDoLugar(Map<String, String> lugar){
+    showModalBottomSheet(
+        context: context,
+        //Permite que o conteudo do bottomsheet ultrapasse a altura padrão, respeitando o tamanho da tela.
+        isScrollControlled: true,
+        builder: (context){
+          return Padding(
+            padding: EdgeInsets.all(20),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                //Foto grande do lugar
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(16),
+                  child: SizedBox(
+                    height: 450,
+                    width: double.infinity,
+                    child: Image.asset(lugar['imagem'] ?? '',
+                      fit: BoxFit.fill),
+                  ),
+                ),
+                SizedBox(height: 16),
+                Text(lugar['nome']??''),
+                SizedBox(height: 16),
+                Row(
+                  children: [
+                    Icon(Icons.location_on, size: 16),
+                    SizedBox(width: 6),
+                    Text(lugar['local']??''),
+                  ],
+                ),
+                SizedBox(height: 16),
+                Text(lugar['descricao']??'')
+              ],
+            ),
+          );
+        }
+    );
   }
 
 }

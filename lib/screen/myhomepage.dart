@@ -4,8 +4,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+  const MyHomePage({super.key,
+    required this.title,
+    required this.modoEscuro,
+    required this.aoAlterarTema,
+  });
   final String title;
+
+  final bool modoEscuro;
+
+  final ValueChanged<bool> aoAlterarTema;
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
