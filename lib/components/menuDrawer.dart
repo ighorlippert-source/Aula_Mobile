@@ -16,7 +16,7 @@ class MenuDrawer extends StatelessWidget {
             onTap: (){
               Navigator.push(context,
                   MaterialPageRoute(builder:(context) =>
-                      MyHomePage(title: "Navegou") ));
+                      MyHomePage(title: "Navegou", modoEscuro: true, aoAlterarTema: (bool value) {  },) ));
             },
           ),
           ListTile(
@@ -24,7 +24,7 @@ class MenuDrawer extends StatelessWidget {
             onTap: (){
               Navigator.push(context,
                   MaterialPageRoute(builder:(context) =>
-                      GaleriaPage() ));
+                      GaleriaPage(modoEscuro: true, aoAlterarTema: (bool value) {  },) ));
             },
           ),
           ListTile(
@@ -32,7 +32,7 @@ class MenuDrawer extends StatelessWidget {
             onTap: (){
               Navigator.push(context,
                   MaterialPageRoute(builder:(context) =>
-                      FormularioPage() ));
+                      FormularioPage(modoEscuro: true, aoAlterarTema: (bool value) {  },) ));
             },
           ),
         ],
